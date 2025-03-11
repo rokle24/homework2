@@ -9,6 +9,7 @@ namespace homework2;
 public static class JsonDbUser
 {
     private static readonly string FilePath = "users.json";
+    public static User? CurrentUser { get; set; }
     public static List<User> LoadUsers()
     {
         if (!File.Exists(FilePath)) return new List<User>();
@@ -21,7 +22,29 @@ public static class JsonDbUser
     {
         IncludeFields = true
     };
+
+    public static string[] GetSubjects(string username)
+    {
+        var user = GetUser(username);
+        return user.Subjects.ToArray();
+    }
+
+    public static void RemoveSubject(string subjectName)
+    {
+        CurrentUser.Subjects.Remove(subjectName);
+        var users = LoadUsers();
+        users.Find(u => u.Username == CurrentUser.Username).Subjects = CurrentUser.Subjects;
+        SaveUsers(users);
+    }
     
+    public static void AddSubject(string subjectName)
+    {
+        CurrentUser.Subjects.Add(subjectName);
+        var users = LoadUsers();
+        users.Find(u => u.Username == CurrentUser.Username).Subjects = CurrentUser.Subjects;
+        SaveUsers(users);
+    }
+
     public static void SaveUsers(List<User> users)
     {
         string json = JsonSerializer.Serialize(users);

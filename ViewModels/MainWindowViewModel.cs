@@ -30,9 +30,7 @@ public partial class MainWindowViewModel : ViewModelBase , INotifyPropertyChange
     private ViewModelBase[] Windows =
     {
         new LoginWindowViewModel(),
-        new RegisterWindowViewModel(),
-        new StudentWindowViewModel(),
-        new TeacherWindowViewModel()
+        new RegisterWindowViewModel()
     };
 
     public System.Action RegisterWindow()
@@ -51,20 +49,16 @@ public partial class MainWindowViewModel : ViewModelBase , INotifyPropertyChange
 
     public System.Action AppWindow()
     {
-        _currentPage = Windows[2];
+        _currentPage = new StudentWindowViewModel();
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentPage)));
         return null;
     }
 
     public System.Action TeacherWindow()
     {
-        _currentPage = Windows[3];
+        _currentPage = new TeacherWindowViewModel();
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentPage)));
         return null;
     }
-    
-    
-    
-    
 }
 

@@ -12,15 +12,6 @@
     xmlns:vm="using:homework2.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Design.DataContext>
-        <!--
-            This only sets the DataContext for the previewer in an IDE,
-            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
-        -->
-        <vm:LoginWindowViewModel />
-    </Design.DataContext>
-
-
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
@@ -55,7 +46,5 @@
         </StackPanel>
 
     </StackPanel>
-
-
 
 </UserControl>

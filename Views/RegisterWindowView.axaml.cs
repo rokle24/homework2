@@ -1,9 +1,5 @@
-﻿using System;
-using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
-using homework2.ViewModels;
 
 namespace homework2.Views;
 

@@ -25,10 +25,9 @@ public partial class LoginWindowView : UserControl
     {
         if (JsonDbUser.ValidateUser(UserNameBox.Text, PasswordBox.Text))
         {
-            MainWindow.User = JsonDbUser.GetUser(UserNameBox.Text);
-            if (MainWindow.User.IsTeacher) WindowManager.TriggerTeacherWindow();
+            JsonDbUser.CurrentUser = JsonDbUser.GetUser(UserNameBox.Text);
+            if (JsonDbUser.CurrentUser.IsTeacher) WindowManager.TriggerTeacherWindow();
             else WindowManager.TriggerStudentWindow();
-            
             
         } else Msg.Text = "Wrong username or password";
     }

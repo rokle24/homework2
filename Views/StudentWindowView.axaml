@@ -13,7 +13,39 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <TextBlock Text="app" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <ComboBox
+                    ItemsSource="{Binding Subjects}"
+                    Margin="0,0,20,0"
+                    PlaceholderText="Add subject"
+                    SelectedItem="{Binding}"
+                    Width="200"
+                    x:Name="SubjectComboBox" />
+                <Button
+                    Content="Add subject"
+                    HorizontalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Width="130"
+                    x:Name="AddSubjectButton" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <ComboBox
+                    ItemsSource="{Binding MySubjects}"
+                    PlaceholderText="My subjects"
+                    Width="200"
+                    x:Name="MySubjectComboBox" />
+                <Button
+                    Content="Remove subject"
+                    HorizontalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Width="130"
+                    x:Name="RemoveSubjectButton" />
+            </StackPanel>
+
+
+        </StackPanel>
 
     </StackPanel>
 

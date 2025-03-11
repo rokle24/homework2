@@ -1,33 +1,35 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace homework2;
 
 public class Subject
 {
-    private int id;
-    private string name;
-    private string description;
-    private int teacherId;
-    private List<int> studentsEnrolled;
+    
+    public string Name {get; set;}
+    public string Description {get; set;}
+    public string TeacherName {get; set;}
+    public List<int> StudentsEnrolled;
 
-    public Subject(int id, string name, string description, int teacherId)
+    public Subject(string name, string description, string teacherName)
     {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.teacherId = teacherId;
-        studentsEnrolled = new List<int>();
+        Name = name;
+        Description = description;
+        TeacherName = teacherName;
+        StudentsEnrolled = new List<int>();
     }
 
-    public string getSubjectName() => name;
+    [JsonConstructor]
+    public Subject(string name, string description, string teacherName, List<int> studentsEnrolled)
+    {
+        Name = name;
+        Description = description;
+        TeacherName = teacherName;
+        StudentsEnrolled = studentsEnrolled;
+    }
     
-    public string getDescription() => description;
 
-    public void setDescription(string newDescription) => description = newDescription;
+    public void addStudentEnrolled(int studentId) => StudentsEnrolled.Add(studentId);
 
-    public List<int> getStudentsEnrolled() => studentsEnrolled;
-
-    public void addStudentEnrolled(int studentId) => studentsEnrolled.Add(studentId);
-
-    public void removeStudentEnrolled(int studentId) => studentsEnrolled.Remove(studentId);
+    public void removeStudentEnrolled(int studentId) => StudentsEnrolled.Remove(studentId);
 }

@@ -34,13 +34,24 @@ public static class JsonDbSubject
         subjects.Add(subject);
         SaveSubjects(subjects);
     }
-    
 
+    public static string[] GetSubjects()
+    {
+        var subjects = LoadSubjects();
+        return subjects.ConvertAll(s => s.Name).ToArray();
+    }
+    
     public static Subject GetSubject(string subjectName)
     {
         var subjects = LoadSubjects();
-        return subjects.Find(s => s.getSubjectName() == subjectName);
+        return subjects.Find(s => s.Name == subjectName);
     }
-    
+
+    public static void RemoveSubject(string subjectName)
+    {
+        var subjects = LoadSubjects();
+        subjects.Remove(subjects.Find(s => s.Name == subjectName));
+        SaveSubjects(subjects);
+    }
     
 }
