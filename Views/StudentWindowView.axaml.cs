@@ -13,15 +13,31 @@ public partial class StudentWindowView : UserControl
         InitializeComponent();
         AddSubjectButton.Click += AddSubjectButtonOnClick;
         RemoveSubjectButton.Click += RemoveSubjectButtonOnClick;
+        LogOutButton.Click += LogOutButtonOnClick;
+    }
+
+    private void LogOutButtonOnClick(object? sender, RoutedEventArgs e)
+    {
+        JsonDbUser.CurrentUser = null;
+        WindowManager.TriggerLogWindow();
     }
 
     private void RemoveSubjectButtonOnClick(object? sender, RoutedEventArgs e)
     {
-        JsonDbUser.RemoveSubject(MySubjectComboBox.SelectedItem.ToString());
+        if (MySubjectComboBox.SelectedItem != null)
+        {
+            JsonDbUser.RemoveSubject((Subject)MySubjectComboBox.SelectedItem);
+            JsonDbSubject.RemoveStudent((Subject)MySubjectComboBox.SelectedItem, JsonDbUser.CurrentUser.Name);
+        }
     }
-
     private void AddSubjectButtonOnClick(object? sender, RoutedEventArgs e)
     {
-        JsonDbUser.AddSubject(SubjectComboBox.SelectedItem.ToString());
+        if (SubjectComboBox.SelectedItem != null)
+        {
+            Subject subject = (Subject)SubjectComboBox.SelectedItem;
+            JsonDbUser.AddSubject(subject);
+            JsonDbSubject.AddStudent(subject, JsonDbUser.CurrentUser.Name);
+        }
+        
     }
 }

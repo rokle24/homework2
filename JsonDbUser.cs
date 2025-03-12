@@ -23,23 +23,23 @@ public static class JsonDbUser
         IncludeFields = true
     };
 
-    public static string[] GetSubjects(string username)
+    public static Subject[] GetSubjects(string username)
     {
         var user = GetUser(username);
         return user.Subjects.ToArray();
     }
 
-    public static void RemoveSubject(string subjectName)
+    public static void RemoveSubject(Subject subject)
     {
-        CurrentUser.Subjects.Remove(subjectName);
+        CurrentUser.Subjects.Remove(subject);
         var users = LoadUsers();
         users.Find(u => u.Username == CurrentUser.Username).Subjects = CurrentUser.Subjects;
         SaveUsers(users);
     }
     
-    public static void AddSubject(string subjectName)
+    public static void AddSubject(Subject subject)
     {
-        CurrentUser.Subjects.Add(subjectName);
+        CurrentUser.Subjects.Add(subject);
         var users = LoadUsers();
         users.Find(u => u.Username == CurrentUser.Username).Subjects = CurrentUser.Subjects;
         SaveUsers(users);
@@ -49,7 +49,6 @@ public static class JsonDbUser
     {
         string json = JsonSerializer.Serialize(users);
         File.WriteAllText(FilePath, json);
-        Console.Write(FilePath);
     }
 
     public static void AddUser(User user)

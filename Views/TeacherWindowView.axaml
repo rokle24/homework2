@@ -7,54 +7,94 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:homework2.Views"
     xmlns:vm="using:homework2.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
+    <Panel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DockPanel LastChildFill="False">
 
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <TextBox
-                        Margin="0,0,20,0"
-                        Watermark="Add subject"
-                        Width="200"
-                        x:Name="AddSubjectTextBox" />
-                    <TextBox
-                        Height="100"
-                        Margin="0,0,20,0"
-                        Watermark="Description"
-                        Width="200"
-                        x:Name="AddDescriptionTextBox" />
-                    <Button
-                        Content="Add subject"
-                        HorizontalAlignment="Center"
-                        HorizontalContentAlignment="Center"
-                        Width="130"
-                        x:Name="AddSubjectButton" />
+                <TextBlock
+                    DockPanel.Dock="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Text="{Binding TextBox2Content}"
+                    x:Name="TextBlock2" />
+                <TextBlock
+                    DockPanel.Dock="Bottom"
+                    HorizontalAlignment="Center"
+                    Text="{Binding TextBoxContent}"
+                    x:Name="TextBlock1" />
+            </DockPanel>
+
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <TextBox
+                            Margin="0,0,20,0"
+                            Watermark="Subject Name"
+                            Width="200"
+                            x:Name="AddSubjectTextBox" />
+                        <TextBox
+                            AcceptsReturn="True"
+                            Height="100"
+                            Margin="0,0,20,0"
+                            TextWrapping="Wrap"
+                            Watermark="Description"
+                            Width="200"
+                            x:Name="AddDescriptionTextBox" />
+                        <Button
+                            Command="{Binding UpdateSubjects}"
+                            Content="Add subject"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            Margin="5"
+                            Width="130"
+                            x:Name="AddSubjectButton" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <ComboBox
+                            ItemsSource="{Binding MySubjects, Mode=TwoWay}"
+                            PlaceholderText="My subjects"
+                            SelectedItem="{Binding SelectedSubject}"
+                            Width="200"
+                            x:Name="MySubjectComboBox">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" ToolTip.Tip="{Binding Description}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Button
+                            Command="{Binding UpdateSubjects}"
+                            Content="Edit subject"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            Margin="5"
+                            Width="130"
+                            x:Name="EditSubjectButton" />
+                        <Button
+                            Command="{Binding UpdateSubjects}"
+                            Content="Remove subject"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            Width="130"
+                            x:Name="RemoveSubjectButton" />
+                    </StackPanel>
+
                 </StackPanel>
-
-                <StackPanel Orientation="Vertical">
-                    <ComboBox
-                        ItemsSource="{Binding MySubjects, Mode=TwoWay}"
-                        PlaceholderText="My subjects"
-                        Width="200"
-                        x:Name="MySubjectComboBox" />
-                    <Button
-                        Content="Remove subject"
-                        HorizontalAlignment="Center"
-                        HorizontalContentAlignment="Center"
-                        Width="130"
-                        x:Name="RemoveSubjectButton" />
-                </StackPanel>
-
-
             </StackPanel>
-
         </StackPanel>
-
-    </StackPanel>
+        <Button
+            Content="Log out"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            x:Name="LogOutButton" />
+    </Panel>
 
 </UserControl>

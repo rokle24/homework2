@@ -34,11 +34,9 @@
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
+        <Panel>
             <TransitioningContentControl Content="{Binding CurrentPage}" />
-
-        </StackPanel>
+        </Panel>
 
     </Panel>
 

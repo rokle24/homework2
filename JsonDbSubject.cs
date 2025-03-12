@@ -20,12 +20,26 @@ public static class JsonDbSubject
     {
         IncludeFields = true
     };
+
+    public static void AddStudent(Subject subject, string studentName)
+    {
+       var subjects = LoadSubjects();
+       subjects.Find(x => x.Name == subject.Name).StudentsEnrolled.Add(studentName);
+       SaveSubjects(subjects);
+       
+    }
+
+    public static void RemoveStudent(Subject subject, string studentName)
+    {
+        var subjects = LoadSubjects();
+        subjects.Find(x => subject.Name == x.Name).StudentsEnrolled.Remove(studentName);
+        SaveSubjects(subjects);
+    }
     
     public static void SaveSubjects(List<Subject> subjects)
     {
         string json = JsonSerializer.Serialize(subjects);
         File.WriteAllText(FilePath, json);
-        Console.Write(FilePath);
     }
 
     public static void AddSubject(Subject subject)
@@ -35,23 +49,20 @@ public static class JsonDbSubject
         SaveSubjects(subjects);
     }
 
-    public static string[] GetSubjects()
+    public static void RemoveSubject(Subject subject)
     {
         var subjects = LoadSubjects();
-        return subjects.ConvertAll(s => s.Name).ToArray();
-    }
-    
-    public static Subject GetSubject(string subjectName)
-    {
-        var subjects = LoadSubjects();
-        return subjects.Find(s => s.Name == subjectName);
-    }
-
-    public static void RemoveSubject(string subjectName)
-    {
-        var subjects = LoadSubjects();
-        subjects.Remove(subjects.Find(s => s.Name == subjectName));
+        subjects.Remove(subjects.Find(s => s.Name == subject.Name));
         SaveSubjects(subjects);
     }
-    
+
+    public static Subject[] GetSubjects()
+    {
+        return LoadSubjects().ToArray();
+    }
+
+    public static string GetStudentsEnrolled(string subjectName)
+    {
+        return LoadSubjects().Find(x => x.Name == subjectName).GetStudentsEnrolled();
+    }
 }

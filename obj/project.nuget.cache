@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dJZe6h7T31Q=",
+  "dgSpecHash": "mUhsqZg1+Po=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Me\\RiderProjects\\homework2\\homework2\\homework2.csproj",
+  "projectFilePath": "C:\\Users\\Me\\Documents\\GitHub\\homework2\\homework2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Me\\.nuget\\packages\\avalonia\\11.2.1\\avalonia.11.2.1.nupkg.sha512",
     "C:\\Users\\Me\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.22045.20230930\\avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",

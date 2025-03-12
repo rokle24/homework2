@@ -13,12 +13,35 @@ public partial class TeacherWindowView : UserControl
         InitializeComponent();
         AddSubjectButton.Click += AddSubjectButtonOnClick;
         RemoveSubjectButton.Click += RemoveSubjectButtonOnClick;
+        EditSubjectButton.Click += EditSubjectButtonOnClick;
+        LogOutButton.Click += LogOutButtonOnClick;
     }
-    
+
+    private void LogOutButtonOnClick(object? sender, RoutedEventArgs e)
+    {
+        JsonDbUser.CurrentUser = null;
+        WindowManager.TriggerLogWindow();
+    }
+
+    private void EditSubjectButtonOnClick(object? sender, RoutedEventArgs e)
+    {
+        if (MySubjectComboBox.SelectedItem != null)
+        {
+            Subject subject = (Subject)MySubjectComboBox.SelectedItem;
+            AddSubjectTextBox.Text = subject.Name;
+            AddDescriptionTextBox.Text = subject.Description;
+            JsonDbUser.RemoveSubject((Subject)MySubjectComboBox.SelectedItem);
+            JsonDbSubject.RemoveSubject((Subject)MySubjectComboBox.SelectedItem);
+        } 
+    }
+
     private void RemoveSubjectButtonOnClick(object? sender, RoutedEventArgs e)
     {
-        JsonDbUser.RemoveSubject(MySubjectComboBox.SelectedItem.ToString());
-        JsonDbSubject
+        if (MySubjectComboBox.SelectedItem != null)
+        {
+            JsonDbUser.RemoveSubject((Subject)MySubjectComboBox.SelectedItem);
+            JsonDbSubject.RemoveSubject((Subject)MySubjectComboBox.SelectedItem);
+        }
     }
 
     private void AddSubjectButtonOnClick(object? sender, RoutedEventArgs e)
@@ -27,7 +50,8 @@ public partial class TeacherWindowView : UserControl
         string descr = AddDescriptionTextBox.Text;
         Subject subject = new Subject(name, descr, JsonDbUser.CurrentUser.Name);
         JsonDbSubject.AddSubject(subject);
-        JsonDbUser.AddSubject(name);
-        
+        JsonDbUser.AddSubject(subject);
+        AddSubjectTextBox.Clear();
+        AddDescriptionTextBox.Clear();
     }
 }

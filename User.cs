@@ -10,7 +10,7 @@ public class User
     public string Username {get; set;}
     public string Password {get; set;}
     public bool IsTeacher {get; set;}
-    public List<string> Subjects {get; set;}
+    public List<Subject> Subjects {get; set;}
 
     public User(string name, string username, string password, bool isTeacher)
     {
@@ -19,11 +19,11 @@ public class User
         Username = username;
         Password = password;
         IsTeacher = isTeacher;
-        Subjects = new List<string>();
+        Subjects = new List<Subject>();
     }
 
     [JsonConstructor]
-    public User(int id, string name, string username, string password, bool isTeacher, List<string> subjects)
+    public User(int id, string name, string username, string password, bool isTeacher, List<Subject> subjects)
     {
         Id = id;
         Name = name;

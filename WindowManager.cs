@@ -8,7 +8,6 @@ public static class WindowManager
     public static event Action? LoginWindow;
     public static event Action? StudentWindow;
     public static event Action? TeacherWindow;
-    public static User? User;
 
     public static void TriggerTeacherWindow()
     {
@@ -28,6 +27,4 @@ public static class WindowManager
     {
         LoginWindow?.Invoke();
     }
-    
-    
 }
