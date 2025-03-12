@@ -56,6 +56,7 @@
                     </ComboBox>
                     <Button
                         Content="Remove subject"
+                        Command="{Binding UpdateSubjects}"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Width="130"
