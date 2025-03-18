@@ -7,7 +7,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:views="clr-namespace:homework2.Views"
     xmlns:vm="using:homework2.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
@@ -16,6 +15,24 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <DockPanel LastChildFill="False">
 
+                <Popup Name="PopupSubjectAdded" PlacementMode="Center" VerticalOffset="-50">
+                    <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <TextBlock Text="Subject added!" />
+                    </Border>
+                </Popup> 
+                
+                <Popup Name="PopupSubjectRemoved" PlacementMode="Center" VerticalOffset="-50">
+                    <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <TextBlock Text="Subject removed!" />
+                    </Border>
+                </Popup> 
+                
+                <Popup Name="PopupExists" PlacementMode="Center" VerticalOffset="-50">
+                    <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <TextBlock Text="Subject with this name already exists!" />
+                    </Border>
+                </Popup> 
+                
                 <TextBlock
                     DockPanel.Dock="Bottom"
                     HorizontalAlignment="Center"

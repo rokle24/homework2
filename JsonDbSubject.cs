@@ -65,4 +65,30 @@ public static class JsonDbSubject
     {
         return LoadSubjects().Find(x => x.Name == subjectName).GetStudentsEnrolled();
     }
+
+    public static bool SubjectExists(string subjectName)
+    {
+        return LoadSubjects().Find(x => x.Name == subjectName) != null;
+    }
+
+    public static void EditSubject(Subject subject)
+    {
+        List<Subject> subjects = LoadSubjects();
+        subjects.Find(x => x.Id == subject.Id).Name = subject.Name;
+        subjects.Find(x => x.Id == subject.Id).Description = subject.Description;
+        SaveSubjects(subjects);
+    }
+
+    public static int GenerateId()
+    {
+        int id = 1;
+        foreach (var subject in LoadSubjects())
+        {
+            if (subject.Id >= id)
+            {
+                id = subject.Id+1;
+            }
+        }
+        return id;
+    }
 }

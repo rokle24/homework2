@@ -13,6 +13,25 @@
 
     <Panel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+            <Popup Name="PopupSubjectAdded" PlacementMode="Center" VerticalOffset="80">
+                <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                    <TextBlock Text="Subject added!" />
+                </Border>
+            </Popup> 
+                
+            <Popup Name="PopupSubjectRemoved" PlacementMode="Center" VerticalOffset="80">
+                <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                    <TextBlock Text="Subject removed!" />
+                </Border>
+            </Popup> 
+            
+            <Popup Name="PopupAlreadyAdded" PlacementMode="Center" VerticalOffset="80">
+                <Border Background="Black" BorderBrush="Gray" BorderThickness="1" Padding="10">
+                    <TextBlock Text="You've already added this subject!" />
+                </Border>
+            </Popup> 
+            
             <TextBlock
                 HorizontalAlignment="Center"
                 Margin="10"

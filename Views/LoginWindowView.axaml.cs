@@ -23,12 +23,16 @@ public partial class LoginWindowView : UserControl
 
     private void LoginButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        if (JsonDbUser.ValidateUser(UserNameBox.Text, PasswordBox.Text))
+        if (UserNameBox.Text != null && PasswordBox.Text != null)
         {
-            JsonDbUser.CurrentUser = JsonDbUser.GetUser(UserNameBox.Text);
-            if (JsonDbUser.CurrentUser.IsTeacher) WindowManager.TriggerTeacherWindow();
-            else WindowManager.TriggerStudentWindow();
+            if (JsonDbUser.ValidateUser(UserNameBox.Text, PasswordBox.Text))
+            {
+                JsonDbUser.CurrentUser = JsonDbUser.GetUser(UserNameBox.Text);
+                if (JsonDbUser.CurrentUser.IsTeacher) WindowManager.TriggerTeacherWindow();
+                else WindowManager.TriggerStudentWindow();
             
-        } else Msg.Text = "Wrong username or password";
+            } 
+        }
+        Msg.Text = "Wrong username or password";
     }
 }

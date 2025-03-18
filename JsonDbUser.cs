@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text.Json;
 
@@ -23,17 +24,41 @@ public static class JsonDbUser
         IncludeFields = true
     };
 
-    public static Subject[] GetSubjects(string username)
+    public static void EditSubject(Subject subject)
     {
-        var user = GetUser(username);
-        return user.Subjects.ToArray();
+        List<User> users = LoadUsers();
+        users.ForEach(usr =>
+        {
+            usr.Subjects.ForEach(sbj =>
+            {
+                if (sbj.Id == subject.Id)
+                {
+                    sbj.Name = subject.Name;
+                    sbj.Description = subject.Description;
+                }
+            });
+        });
+        CurrentUser.Subjects.Find(s => s.Id == subject.Id).Description = subject.Description;
+        CurrentUser.Subjects.Find(s => s.Id == subject.Id).Name = subject.Name;
+        
+        SaveUsers(users);
     }
-
+    
     public static void RemoveSubject(Subject subject)
     {
         CurrentUser.Subjects.Remove(subject);
         var users = LoadUsers();
+
         users.Find(u => u.Username == CurrentUser.Username).Subjects = CurrentUser.Subjects;
+
+        if (CurrentUser.IsTeacher)
+        {
+            foreach (var user in users)
+            {
+                user.Subjects.RemoveAll(s => s.Name == subject.Name);
+            }
+        }
+        
         SaveUsers(users);
     }
     
@@ -61,7 +86,14 @@ public static class JsonDbUser
     public static bool ValidateUser(string username, string password)
     {
         var users = LoadUsers();
-        return users.Exists(u => u.Username == username && u.Password == password);
+        User user;
+
+        if (users.Exists(u => u.Username == username))
+        {
+            user = users.Find(u => u.Username == username);
+            return Hash.VerifyPassword(password, user.PasswordHash, user.Salt);
+        }  
+        return false;
     }
 
     public static User GetUser(string username)
@@ -75,5 +107,4 @@ public static class JsonDbUser
         var users = LoadUsers();
         return users.Exists(u => u.Username == username);
     }
-    
 }

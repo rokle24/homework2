@@ -66,8 +66,12 @@ public class TeacherWindowViewModel : ViewModelBase
     
     public void UpdateTextBoxContent()
     {
-        TextBoxContent = JsonDbSubject.GetStudentsEnrolled(_selectedSubject.Name);
-        TextBox2Content = "";
+        if (SelectedSubject != null)
+        {
+            TextBoxContent = JsonDbSubject.GetStudentsEnrolled(_selectedSubject.Name);
+            TextBox2Content = " ";
+        }
+        
     }
 }
 
