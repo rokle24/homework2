@@ -2429,9 +2429,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniverityManagementApp.test.csproj",
-      "projectName": "UniverityManagementApp.test",
-      "projectPath": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniverityManagementApp.test.csproj",
+      "projectUniqueName": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniversityManagementApp.test.csproj",
+      "projectName": "UniversityManagementApp.test",
+      "projectPath": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniversityManagementApp.test.csproj",
       "packagesPath": "C:\\Users\\downy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\obj\\",
       "projectStyle": "PackageReference",

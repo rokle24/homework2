@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "znE44ZyHG0w=",
+  "dgSpecHash": "Pbx3wOg5wXI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniverityManagementApp.test.csproj",
+  "projectFilePath": "C:\\Users\\downy\\Documents\\SDU\\SEMS2\\AOOP\\Assignments\\HW2 University Management App\\homework2\\UniversityManagementApp.test\\UniversityManagementApp.test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\downy\\.nuget\\packages\\avalonia\\11.2.1\\avalonia.11.2.1.nupkg.sha512",
     "C:\\Users\\downy\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.22045.20230930\\avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",
