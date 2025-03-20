@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Linq;
 using homework2;
 
-namespace UniverityManagementApp.test;
+namespace UniversityManagementApp.test;
 
 public class UniversityManagementTests
 {
