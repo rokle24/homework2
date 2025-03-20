@@ -48,6 +48,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Avalonia.Headless.XUnit": {
+              "target": "Package",
+              "version": "[11.2.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.12.0, )"

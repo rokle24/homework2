@@ -22,6 +22,25 @@ public class UniversityManagementTests
         Assert.Contains(subject, student.Subjects);
         Assert.Contains(student.Name, subject.StudentsEnrolled);
     }
+
+    [Fact]
+    public void DropSubjectTest()
+    {
+        var student = new User("Diego", "diego123", "password123", false);
+        var subject = new Subject("Advanced Object-Oriented Programming", "Learn unit testing", "Maximilian von Zastrow");
+        
+        student.Subjects.Add(subject);
+        subject.StudentsEnrolled.Add(student.Name);
+
+        Assert.Contains(subject, student.Subjects);
+        Assert.Contains(student.Name, subject.StudentsEnrolled);
+        
+        student.Subjects.Remove(subject);
+        subject.StudentsEnrolled.Remove(student.Name);
+        
+        Assert.DoesNotContain(subject, student.Subjects);
+        Assert.DoesNotContain(student.Name, subject.StudentsEnrolled);
+    }
     
     [Fact]
     public void CreateSubjectTest()
@@ -36,6 +55,59 @@ public class UniversityManagementTests
         Assert.Contains(subject, teacher.Subjects);
         Assert.Contains(subject, allSubjects);
         Assert.Equal(teacher.Name, subject.TeacherName);
+    }
+
+        [Fact]
+    public void DeleteSubjectTest()
+    {
+        var teacher = new User("Adam Alami", "Adam456", "password456", true);
+        var subject = new Subject("Software Engineering", "Agile development", teacher.Name);
+        
+        // Add subject to teacher and all subjects list
+        teacher.Subjects.Add(subject);
+        var allSubjects = new List<Subject>();
+        allSubjects.Add(subject);
+        
+        // Verify subject was added
+        Assert.Contains(subject, teacher.Subjects);
+        Assert.Contains(subject, allSubjects);
+        
+        // Delete subject
+        teacher.Subjects.Remove(subject);
+        allSubjects.Remove(subject);
+        
+        // Verify subject was deleted
+        Assert.DoesNotContain(subject, teacher.Subjects);
+        Assert.DoesNotContain(subject, allSubjects);
+    }
+    
+        [Fact]
+    public void LoginValidationTest()
+    {
+        var student = new User("Diego", "diego123", "password123", false);
+        var teacher = new User("Adam Alami", "Adam456", "password456", true);
+        
+        var users = new List<User> { student, teacher };
+        
+        // Student login
+        var foundStudent = users.FirstOrDefault(u => u.Username == "diego123");
+        Assert.NotNull(foundStudent);
+        Assert.Equal("Diego", foundStudent.Name);
+        Assert.False(foundStudent.IsTeacher);
+        
+        // Teacher login
+        var foundTeacher = users.FirstOrDefault(u => u.Username == "Adam456");
+        Assert.NotNull(foundTeacher);
+        Assert.Equal("Adam Alami", foundTeacher.Name);
+        Assert.True(foundTeacher.IsTeacher);
+        
+        // Non-existent user
+        var nonExistentUser = users.FirstOrDefault(u => u.Username == "notauser");
+        Assert.Null(nonExistentUser);
+        
+        // Role verification
+        Assert.False(student.IsTeacher, "Student should not have teacher role");
+        Assert.True(teacher.IsTeacher, "Teacher should have teacher role");
     }
     
     [Fact]

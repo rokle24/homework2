@@ -154,3 +154,5 @@ C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management Ap
 C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net9.0\UniversityManagementApp.test.pdb
 C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net9.0\UniversityManagementApp.test.genruntimeconfig.cache
 C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net9.0\ref\UniversityManagementApp.test.dll
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\bin\Debug\net9.0\Avalonia.Headless.dll
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\bin\Debug\net9.0\Avalonia.Headless.XUnit.dll

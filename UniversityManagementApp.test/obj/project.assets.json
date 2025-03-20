@@ -213,6 +213,39 @@
           }
         }
       },
+      "Avalonia.Headless/11.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.2.1"
+        },
+        "compile": {
+          "lib/net8.0/Avalonia.Headless.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Avalonia.Headless.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Avalonia.Headless.XUnit/11.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia.Headless": "11.2.1",
+          "xunit.core": "2.4.0"
+        },
+        "compile": {
+          "lib/net8.0/Avalonia.Headless.XUnit.dll": {
+            "related": ".runtimeconfig.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Avalonia.Headless.XUnit.dll": {
+            "related": ".runtimeconfig.json;.xml"
+          }
+        }
+      },
       "Avalonia.Native/11.2.1": {
         "type": "package",
         "dependencies": {
@@ -1327,6 +1360,44 @@
         "lib/netstandard2.0/Avalonia.FreeDesktop.xml"
       ]
     },
+    "Avalonia.Headless/11.2.1": {
+      "sha512": "rRMFwvsCHcawgnGNuBCY7FMIZ+B/LgauDaTI9jvPY+c88hAb+2gzOfLo3TZVOnB/8jMHqHyCrBdthpCvVWzrNw==",
+      "type": "package",
+      "path": "avalonia.headless/11.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "avalonia.headless.11.2.1.nupkg.sha512",
+        "avalonia.headless.nuspec",
+        "lib/net6.0/Avalonia.Headless.dll",
+        "lib/net6.0/Avalonia.Headless.xml",
+        "lib/net8.0/Avalonia.Headless.dll",
+        "lib/net8.0/Avalonia.Headless.xml",
+        "lib/netstandard2.0/Avalonia.Headless.dll",
+        "lib/netstandard2.0/Avalonia.Headless.xml"
+      ]
+    },
+    "Avalonia.Headless.XUnit/11.2.1": {
+      "sha512": "jlueQlQ82+QDCl+wdljUitb+qaO+xA2rDPPUcP4v9IrcEtzRnRqNAikZDemTB32AWYFOs+MurwDHpuLA21FVyg==",
+      "type": "package",
+      "path": "avalonia.headless.xunit/11.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "avalonia.headless.xunit.11.2.1.nupkg.sha512",
+        "avalonia.headless.xunit.nuspec",
+        "lib/net6.0/Avalonia.Headless.XUnit.dll",
+        "lib/net6.0/Avalonia.Headless.XUnit.runtimeconfig.json",
+        "lib/net6.0/Avalonia.Headless.XUnit.xml",
+        "lib/net8.0/Avalonia.Headless.XUnit.dll",
+        "lib/net8.0/Avalonia.Headless.XUnit.runtimeconfig.json",
+        "lib/net8.0/Avalonia.Headless.XUnit.xml",
+        "lib/netstandard2.0/Avalonia.Headless.XUnit.dll",
+        "lib/netstandard2.0/Avalonia.Headless.XUnit.xml"
+      ]
+    },
     "Avalonia.Native/11.2.1": {
       "sha512": "1cVasDUIkqfAYLkaLFDx+VDZymer2v643OYD6Jd6nzP20TNTqN2LfFOpxXCTYMrWc9Dk5AoVJJCrz3wRE5kooQ==",
       "type": "package",
@@ -2416,6 +2487,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "Avalonia.Headless.XUnit >= 11.2.1",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "coverlet.collector >= 6.0.2",
       "homework2 >= 1.0.0",
@@ -2470,6 +2542,10 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "Avalonia.Headless.XUnit": {
+            "target": "Package",
+            "version": "[11.2.1, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.12.0, )"

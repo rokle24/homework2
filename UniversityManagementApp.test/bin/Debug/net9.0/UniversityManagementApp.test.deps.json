@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "UniversityManagementApp.test/1.0.0": {
         "dependencies": {
+          "Avalonia.Headless.XUnit": "11.2.1",
           "Microsoft.NET.Test.Sdk": "17.12.0",
           "coverlet.collector": "6.0.2",
           "homework2": "1.0.0",
@@ -162,6 +163,29 @@
         },
         "runtime": {
           "lib/net8.0/Avalonia.FreeDesktop.dll": {
+            "assemblyVersion": "11.2.1.0",
+            "fileVersion": "11.2.1.0"
+          }
+        }
+      },
+      "Avalonia.Headless/11.2.1": {
+        "dependencies": {
+          "Avalonia": "11.2.1"
+        },
+        "runtime": {
+          "lib/net8.0/Avalonia.Headless.dll": {
+            "assemblyVersion": "11.2.1.0",
+            "fileVersion": "11.2.1.0"
+          }
+        }
+      },
+      "Avalonia.Headless.XUnit/11.2.1": {
+        "dependencies": {
+          "Avalonia.Headless": "11.2.1",
+          "xunit.core": "2.9.2"
+        },
+        "runtime": {
+          "lib/net8.0/Avalonia.Headless.XUnit.dll": {
             "assemblyVersion": "11.2.1.0",
             "fileVersion": "11.2.1.0"
           }
@@ -830,6 +854,20 @@
       "sha512": "sha512-ChKdPjQ2uBJUN0y+/RsdoETzXRn/q1eWFBDwprDy+Zi/AVkUfRk06hKbsb/U+Q3zO65CMEprRcMPbys0EkK2vg==",
       "path": "avalonia.freedesktop/11.2.1",
       "hashPath": "avalonia.freedesktop.11.2.1.nupkg.sha512"
+    },
+    "Avalonia.Headless/11.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rRMFwvsCHcawgnGNuBCY7FMIZ+B/LgauDaTI9jvPY+c88hAb+2gzOfLo3TZVOnB/8jMHqHyCrBdthpCvVWzrNw==",
+      "path": "avalonia.headless/11.2.1",
+      "hashPath": "avalonia.headless.11.2.1.nupkg.sha512"
+    },
+    "Avalonia.Headless.XUnit/11.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jlueQlQ82+QDCl+wdljUitb+qaO+xA2rDPPUcP4v9IrcEtzRnRqNAikZDemTB32AWYFOs+MurwDHpuLA21FVyg==",
+      "path": "avalonia.headless.xunit/11.2.1",
+      "hashPath": "avalonia.headless.xunit.11.2.1.nupkg.sha512"
     },
     "Avalonia.Native/11.2.1": {
       "type": "package",
