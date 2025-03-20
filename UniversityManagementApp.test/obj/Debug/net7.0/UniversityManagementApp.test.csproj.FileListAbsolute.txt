@@ -1,0 +1,7 @@
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.csproj.AssemblyReference.cache
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\Avalonia\Resources.Inputs.cache
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.AssemblyInfoInputs.cache
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.AssemblyInfo.cs
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.csproj.CoreCompileInputs.cache
+C:\Users\downy\Documents\SDU\SEMS2\AOOP\Assignments\HW2 University Management App\homework2\UniversityManagementApp.test\obj\Debug\net7.0\UniversityManagementApp.test.sourcelink.json
